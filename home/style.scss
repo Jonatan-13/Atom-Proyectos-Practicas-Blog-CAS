@@ -1,0 +1,288 @@
+@use "sass:color";
+@import url('https://fonts.googleapis.com/css2?family=Glory&family=Inter&display=swap');
+
+@mixin font($family, $size) {
+    font: {
+        family: $family, sans-serif;
+        size: $size;
+    }
+}
+
+
+//colors
+$purple: #1c001c;
+$red: #500;
+$gradient: linear-gradient(135deg, $purple, $red);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {text-decoration: none;}
+
+header {
+    width: 100%;
+    padding: 10px 5%;
+    box-sizing: border-box;
+    background: $gradient;
+    box-shadow: 0 0 20px #0008;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    // &.left-nav {animation: left 0.25s both;}
+    // @keyframes left {
+    //     0% {top: 0;}
+    //     10% {
+    //         background: #000;
+    //         nav ul li a {opacity: 0;}
+    //     }
+    //     40% {
+    //         h1 {opacity: 0;}
+    //         h1::first-letter {
+    //             opacity: 1;
+    //             background: $gradient;
+    //             padding: 5px;
+    //             border-radius: 50%;
+    //         }
+    //     }
+    //     50% {
+    //         width: 50px;
+    //     }
+    //     100% {
+    //         top: 25px;
+    //         left: 10px;
+    //         background: #fff;
+    //         box-shadow: 0 0 20px #0002;
+    //     }
+    // }
+    // &.top-nav {animation: top 0.25s;}
+    // @keyframes top {
+    //     100% {
+    //         top: 0;
+    //         left: 0;
+    //         background: transparent;
+    //         box-shadow: 0 0 20px #0008;
+    //     }
+    // }
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a {color: #fff;}
+        span {
+            @include font(glory, 2.5rem);
+        }
+        ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            li {
+                @include font(inter, 1.25rem);
+                a {
+                    color: #ccc;
+                    &:hover {color: #fff;}
+                }
+            }
+        }
+    }
+}
+
+main {
+    .yo {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background: url("imagenes/dibujo-1.svg"), $gradient;
+        background-repeat: no-repeat;
+        background-position: right 65px, center;
+        background-size: 40%, 100%;
+        padding-bottom: 75px;
+        .img {
+            flex: 30% 0 0;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            border-bottom: 5px solid #000;
+            // background: url("imagenes/dibujo.svg");
+            // background-repeat: no-repeat;
+            // background-size: contain;
+            // background-position: bottom;
+            div {
+                background: #fff;
+                border-radius: 50%;
+                width: 100%;
+                margin: 0 auto;
+                display: flex;
+                align-items: flex-end;
+                img {
+                    transform: rotateY(180deg);
+                    width: 87.5%;
+                    //filter: contrast(1.25) saturate(0.75) brightness(1.25);
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: -125px;
+                }
+            }
+        }
+        .bio {
+            flex: 40% 0 0;
+            h1 {
+                @include font(inter, 3rem);
+                color: #fff;
+                text-transform: capitalize;
+            }
+            p {
+                @include font(glory, 1.25rem);
+                margin-top: 40px;
+                color: #fff;
+                font-weight: 100;
+            }
+            a {
+                @include font(glory, 1.25rem);
+                color: #000;
+                background: #fffc;
+                border-radius: 5px;
+                padding: 5px 30px;
+                display: inline-block;
+                margin-top: 30px;
+                &:hover {background: #fff;}
+            }
+        }
+    }
+    .gales {
+        padding: 100px 5%;
+        background: linear-gradient(180deg, #ddd, #fff);
+        h2 {
+            @include font(inter, 2.5rem);
+            text-align: center;
+        }
+        > p {
+            @include font(glory, 1.375rem);
+            width: 75%;
+            margin: 50px auto 0;
+            color: #555;
+            text-align: center;
+            span {
+                display: block;
+                margin-top: 25px;
+                font-weight: 900;
+                text-decoration: underline solid currentColor;
+            }
+        }
+        .atributos {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 75px;
+            .atributo {
+                width: 30%;
+                flex: 30% 0 0;
+                border-radius: 5px;
+                background: #fff;
+                box-shadow: 0 -5px color.mix($purple, $red), 0 15px 20px -5px #0002;
+                padding: 25px 0;
+                box-sizing: border-box;
+                h3 {
+                    @include font(inter, 2rem);
+                    text-align: center;
+                }
+
+                img {
+                    margin-top: 12.5px;
+                    width: 100%;
+                }
+                p {
+                    @include font(glory, 1.25rem);
+                    text-align: center;
+                    padding: 0 10px;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+    .proyectos-experiencias {
+        padding: 50px 10%;
+        h2 {
+            @include font(inter, 2.5rem);
+        }
+        > p {
+            @include font(glory, 1.25rem);
+            color: #555;
+            margin-top: 25px;
+            width: 90%;
+        }
+        .grid {
+            margin: 50px auto 0;
+            display: grid;
+            grid-template: repeat(2, auto) / repeat(2, 1fr);
+            align-items: center;
+            gap: 20px;
+            > * {
+                border-radius: 5px;
+                box-shadow: 2.5px -2.5px 7.5px #0002, -2.5px 2.5px $red;
+                padding: 20px;
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                column-gap: 10px;
+                img {
+                    border: 1px solid #000;
+                    grid-row: 1 / 4;
+                    background: $gradient;
+                }
+                h3 {
+                    @include font(inter, 1.5rem);
+                }
+                p {
+                    @include font(glory, 1.25rem);
+                    color: #555;
+                    margin-top: 20px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+                a {
+                    @include font(glory, 1.125rem);
+                    display: inline-block;
+                    margin-top: 15px;
+                    color: color.mix($purple, $red);
+                    font-weight: 700;
+                    border-bottom: 2px solid currentColor;
+                    transition: padding-right 0.2s;
+                    &:hover {padding-right: 20px;}
+                }
+            }
+            .proyecto {
+                grid-row: 1 / 3;
+                grid-column: 1 / 2;
+                align-self: stretch;
+                grid-template: repeat(2, 1fr) / auto;
+                row-gap: 20px;
+                img {grid-row: initial;}
+            }
+        }
+        > a {
+            @include font(glory, 1.25rem);
+            color: #000;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 25px;
+            margin-left: 25px;
+            border-bottom: 2px solid currentColor;
+            transition: margin-left 0.2s, padding 0.2s;
+            &:hover {
+                padding: 0 25px;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+footer {
+    margin-top: 100px;
+    height: 100px;
+    background: $gradient;
+}
