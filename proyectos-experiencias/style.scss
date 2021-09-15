@@ -1,0 +1,91 @@
+@use "sass:color";
+@import url('https://fonts.googleapis.com/css2?family=Glory&family=Inter&display=swap');
+
+@mixin font($family, $size) {
+    font: {
+        family: $family, sans-serif;
+        size: $size;
+    }
+}
+
+
+//colors
+$purple: #1c001c;
+$red: #500;
+$gradient: linear-gradient(135deg, $purple, $red);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {text-decoration: none;}
+
+header {
+    width: 100%;
+    padding: 10px 5%;
+    box-sizing: border-box;
+    background: $gradient;
+    box-shadow: 0 0 20px #0008;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    // &.left-nav {animation: left 0.25s both;}
+    // @keyframes left {
+    //     0% {top: 0;}
+    //     10% {
+    //         background: #000;
+    //         nav ul li a {opacity: 0;}
+    //     }
+    //     40% {
+    //         h1 {opacity: 0;}
+    //         h1::first-letter {
+    //             opacity: 1;
+    //             background: $gradient;
+    //             padding: 5px;
+    //             border-radius: 50%;
+    //         }
+    //     }
+    //     50% {
+    //         width: 50px;
+    //     }
+    //     100% {
+    //         top: 25px;
+    //         left: 10px;
+    //         background: #fff;
+    //         box-shadow: 0 0 20px #0002;
+    //     }
+    // }
+    // &.top-nav {animation: top 0.25s;}
+    // @keyframes top {
+    //     100% {
+    //         top: 0;
+    //         left: 0;
+    //         background: transparent;
+    //         box-shadow: 0 0 20px #0008;
+    //     }
+    // }
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a {color: #fff;}
+        span {
+            @include font(glory, 2.5rem);
+        }
+        ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            li {
+                @include font(inter, 1.25rem);
+                a {
+                    color: #ccc;
+                    &:hover {color: #fff;}
+                }
+            }
+        }
+    }
+}
