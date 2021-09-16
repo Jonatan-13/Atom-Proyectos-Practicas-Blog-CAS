@@ -90,7 +90,72 @@ header {
     }
 }
 
+main {
+    padding: 75px 5%;
+    h1 {
+        @include font(inter, 3rem);
+        text-align: center;
+    }
+    > p {
+        @include font(glory, 1.375rem);
+        color: #555;
+        text-align: center;
+        margin: 50px auto 0;
+        width: 75%;
+    }
+    .evolucion {
+        margin-top: 75px;
+        width: 100vw;
+        background: $gradient;
+        position: relative;
+        left: -5vw;
+        padding: 5%;
+        h2 {
+            @include font(inter, 2.5rem);
+            color: #fff;
+            width: 100%;
+            flex: 100% 0 0;
+            text-align: center;
+        }
+        .comparacion {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            div {
+                color: #fff;
+                text-align: center;
+                width: 30%;
+                h3 {@include font(inter, 2rem);}
+                p {
+                    @include font(glory, 1.25rem);
+                    margin-top: 12.5px;
+                }
+            }
+            img {
+
+            }
+        }
+    }
+    .datos {
+        margin-top: 100px;
+        h2 {
+            @include font(inter, 2.5rem);
+            text-align: center;
+        }
+        > p {
+            @include font(glory, 1.375rem);
+            color: #555;
+            margin: 50px auto 0;
+            text-align: center;
+            width: 75%;
+        }
+        .container {
+
+        }
+    }
+}
+
 footer {
-    height: 150px;
+    height: 100px;
     background: $gradient;
 }
