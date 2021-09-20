@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Glory&family=Inter&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  padding: 10px 5%;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1c001c, #500);
+  box-shadow: 0 0 20px #0008;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header nav a {
+  color: #fff;
+}
+header nav span {
+  font-family: glory, sans-serif;
+  font-size: 2.5rem;
+}
+header nav ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+header nav ul li {
+  font-family: inter, sans-serif;
+  font-size: 1.25rem;
+}
+header nav ul li a {
+  color: #ccc;
+}
+header nav ul li a:hover {
+  color: #fff;
+}
+
+main {
+  padding: 75px 5%;
+}
+main h1 {
+  font-family: inter, sans-serif;
+  font-size: 3rem;
+  text-align: center;
+}
+main > p {
+  font-family: glory, sans-serif;
+  font-size: 1.375rem;
+  color: #555;
+  text-align: center;
+  margin: 37.5px auto 0;
+  width: 75%;
+}
+main .evolucion {
+  margin-top: 75px;
+  background: linear-gradient(135deg, #1c001c, #500);
+  position: relative;
+  left: -5vw;
+  padding: 5vw;
+}
+main .evolucion h2 {
+  font-family: inter, sans-serif;
+  font-size: 2.5rem;
+  color: #fff;
+  width: 100%;
+  flex: 100% 0 0;
+  text-align: center;
+  text-transform: capitalize;
+}
+main .evolucion .comparacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  max-width: 90vw;
+}
+main .evolucion .comparacion div:not(.img) {
+  color: #fff;
+  text-align: center;
+  width: 30%;
+}
+main .evolucion .comparacion div:not(.img) h3 {
+  font-family: inter, sans-serif;
+  font-size: 2rem;
+}
+main .evolucion .comparacion div:not(.img) p {
+  font-family: glory, sans-serif;
+  font-size: 1.25rem;
+  margin-top: 12.5px;
+}
+main .evolucion .comparacion .img {
+  border-radius: 50%;
+  background: #000;
+  width: 30%;
+  overflow: hidden;
+}
+main .evolucion .comparacion .img img {
+  clip-path: inset(0 0 40% 0);
+  filter: brightness(0.8) contrast(1.25);
+  width: 70%;
+  margin: auto;
+  display: block;
+}
+main .datos {
+  margin-top: 100px;
+}
+main .datos h2 {
+  font-family: inter, sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+}
+main .datos > p {
+  font-family: glory, sans-serif;
+  font-size: 1.375rem;
+  color: #555;
+  margin: 50px auto 0;
+  text-align: center;
+  width: 75%;
+}
+main .datos .container {
+  width: 85%;
+  margin: 75px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+main .datos .container .row {
+  position: relative;
+  background: linear-gradient(135deg, #1c001c, #500);
+  padding: 10px 20px;
+  border-radius: 200px 20px 20px 200px;
+  border: 15px solid transparent;
+  border-right: none;
+  background-origin: border-box;
+  background-clip: border-box;
+  display: flex;
+  gap: 25px;
+  overflow: hidden;
+  transform: translateX(-50px);
+}
+main .datos .container .row::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: calc(100% + 30px);
+  position: absolute;
+  inset: -15px 0 0 auto;
+  background: linear-gradient(90deg, transparent, #0006);
+  z-index: 10;
+}
+@keyframes translate {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 25px));
+  }
+}
+@keyframes changeOrder {
+  99% {
+    order: 0;
+  }
+  100% {
+    order: 4;
+  }
+}
+@keyframes changeOrder {
+  99% {
+    order: 0;
+  }
+  100% {
+    order: 1;
+  }
+}
+@keyframes changeOrder {
+  99% {
+    order: 0;
+  }
+  100% {
+    order: 2;
+  }
+}
+@keyframes changeOrder {
+  99% {
+    order: 0;
+  }
+  100% {
+    order: 3;
+  }
+}
+main .datos .container .row .dato {
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  min-width: 400px;
+  animation: translate 7.5s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+main .datos .container .row .dato h3 {
+  font-family: inter, sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+}
+main .datos .container .row .dato .left-top {
+  animation: left-top 0.5s both;
+}
+main .datos .container .row .dato .center {
+  animation: center 0.5s both;
+}
+@keyframes center {
+  from {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    text-align: left;
+  }
+  to {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes left-top {
+  from {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    text-align: left;
+  }
+}
+main .datos .container .row .dato p {
+  font-family: glory, sans-serif;
+  font-size: 1.25rem;
+}
+main .datos .container .row .dato .visible {
+  animation: visible 0.25s 0.25s both;
+}
+main .datos .container .row .dato .hidden {
+  animation: hidden 0.25s both;
+}
+@keyframes visible {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hidden {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+main .datos .container .row:nth-child(2) {
+  border-radius: 20px 200px 200px 20px;
+  transform: translateX(50px);
+  border-left: none;
+  border-right: 15px solid transparent;
+}
+main .datos .container .row:nth-child(2)::after {
+  inset: -15px auto 0 0;
+  background: linear-gradient(270deg, transparent, #0006);
+}
+main .datos .container .row:nth-child(2) .dato {
+  animation-direction: reverse;
+}
+main .datos .container .row:last-child .dato {
+  animation-delay: 3s;
+}
+
+footer {
+  height: 100px;
+  background: linear-gradient(135deg, #1c001c, #500);
+}
+
+/*# sourceMappingURL=style.css.map */
