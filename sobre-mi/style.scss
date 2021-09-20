@@ -170,46 +170,118 @@ main {
             .row {
                 position: relative;
                 background: $gradient;
-                padding: 20px;
-                box-shadow: 0 0 20px #0004;
-                border-radius: 5px;
-                border-left: 20px solid $purple;
-                border-right: 20px solid $red;
+                padding: 10px 20px;
+                border-radius: 200px 20px 20px 200px;
+                border: 15px solid transparent;
+                border-right: none;
+                background-origin: border-box;
+                background-clip: border-box;
                 display: flex;
                 gap: 25px;
                 overflow: hidden;
+                transform: translateX(-50px);
                 &::after {
                     content: "";
                     display: block;
-                    width: 100%;
+                    width: 20px;
+                    height: calc(100% + 30px);
                     position: absolute;
-                    inset: 0;
-                    box-shadow: inset -5px 0 20px #0008, inset 5px 0 20px #0008;
+                    inset: -15px 0 0 auto;
+                    background: linear-gradient(90deg, transparent, #0006);
                     z-index: 10;
                 }
-                $count: 1;
-                @keyframes rotate {
-                    from {transform: translateX(0);}
-                    to {
-                        transform: translateX(calc(-100% - 25px));
+                @keyframes translate {
+                    0% {transform: translateX(0);}
+                    100% {transform: translateX(calc(-100% - 25px));}
+                }
+                @for $i from 1 through 4 {
+                    &:nth-child(#{$i}) {
+                        $count: 1;
+                        $order: $i;
+                        @keyframes changeOrder {
+                            99% {order: 0;}
+                            100% {
+                                @if $order - $count > 0 {
+                                    order: $order - $count;
+                                    $count: $count+1;
+                                }
+                                @else {
+                                    $order: 4;
+                                    order: $order;
+                                    $count: 1;
+                                }
+                                @debug $count;
+                            }
+                        }
                     }
                 }
                 .dato {
                     background: #fff;
                     border-radius: 5px;
                     padding: 10px;
-                    min-width: 350px;
-                    animation: rotate linear 4s infinite;
-                    @for $i from 1 through 4 {
-                        &:nth-child(#{$i}) {z-index: $i;}
+                    min-width: 400px;
+                    animation: translate 7.5s linear infinite, /*changeOrder 6s linear infinite*/;
+                    position: relative;
+                    overflow: hidden;
+                    h3 {
+                        @include font(inter, 2rem);
+                        text-align: center;
+                        display: inline-block;
+                        position: relative;
                     }
-                    &.close {
-                        h3 {
-
+                    .left-top {animation: left-top 0.5s both;}
+                    .center {animation: center 0.5s both;}
+                    @keyframes center {
+                        from {
+                            top: 0;
+                            left: 0;
+                            transform: translate(0, 0);
+                            text-align: left;
+                        }
+                        to {
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
                         }
                     }
-                    h3 {@include font(inter, 2rem)}
-                    p {@include font(glory, 1.25rem)}
+                    @keyframes left-top {
+                        from {
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                        to {
+                            top: 0;
+                            left: 0;
+                            transform: translate(0, 0);
+                            text-align: left;
+                        }
+                    }
+                    p {@include font(glory, 1.25rem);}
+                    .visible {animation: visible 0.25s 0.25s both;}
+                    .hidden {animation: hidden 0.25s both;}
+                    @keyframes visible {
+                        from {opacity: 0;}
+                        to {opacity: 1;}
+                    }
+                    @keyframes hidden {
+                        from {opacity: 1;}
+                        to {opacity: 0;}
+                    }
+                }
+                &:nth-child(2) {
+                    border-radius: 20px 200px 200px 20px;
+                    transform: translateX(50px);
+                    border-left: none;
+                    border-right: 15px solid transparent;
+                    &::after {
+                        inset: -15px auto 0 0;
+                        background: linear-gradient(270deg, transparent, #0006);
+                    }
+                    .dato {animation-direction: reverse;}
+                }
+                &:last-child {
+                    .dato {animation-delay: 3s;}
                 }
             }
         }
