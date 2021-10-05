@@ -12,16 +12,41 @@
     <body>
         <header>
             <nav>
-                <span><a href="../Home/index.html">Jonatan Palomares</a></span>
+                <span><a href="../home/index.html">Jonatan Palomares</a></span>
                 <ul>
-                    <li><a href="../Home/index.html">Inicio</a></li>
-                    <li><a href="../Sobre-mi/index.html">Sobre mi</a></li>
+                    <li><a href="../home/index.html">Inicio</a></li>
+                    <li><a href="../sobre-mi/index.html">Sobre mí</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-            <section></section>
-            <section></section>
+            <h1>Proyectos y Experiencias</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor fuga sapiente molestias ut, autem praesentium provident nisi mollitia sint itaque veniam ducimus quaerat enim nesciunt error, laudantium. Totam eligendi veritatis maxime qui ea eum temporibus beatae aliquam voluptas ipsa quo alias, quisquam officia possimus similique aspernatur! Beatae voluptatibus vero sunt?</p>
+            <section>
+                <p>
+                    <button>Proyectos</button>
+                    <button>Experiencias</button>
+                </p>
+                <div class="proyectos"></div>
+                <div class="experiencias"></div>
+                <!--no crear los articulos aqui sino en un JSON? quedaría más legible y sería más facil de organizar-->
+                <!--cuando se haga click sobre algun articulo no mandar a la persona a otra página sino crear un tipo de modal con scrollbar personalizado-->
+                <div class="buscar-articulo">
+                    <h3>Busca un proyecto o experiencia</h3>
+                    <input type="search" name="" value="" placeholder="Buscar...">
+                    <div class="select">
+                        <input type="button" value="Reciente">
+                        <input type="button" value="Antiguo">
+                    </div>
+                    <div class="select">
+                        <input type="button" value="Corto">
+                        <input type="button" value="Largo">
+                    </div>
+                    <!--que haya un padding mayor y los inputs esten centrados cuando no exista hover, cuando exista que este se reduzca-->
+                    <!--cuando haya hover hacer que el balor de los inputs cambie a: "mas reciente primero", "mas antiguo primero", "mas corto primero" y "mas largo primero" respectivamente-->
+                    <!--cuando busque que aparezcan unicamente los que coincidan, si ninguno coincide mostrar un mensaje explicando lo sucedido y un boton para volver a mostrar todos los resultados-->
+                </div>
+            </section>
         </main>
         <footer></footer>
         <script src="script.js"></script>
